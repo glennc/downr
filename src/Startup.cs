@@ -63,8 +63,9 @@ namespace downr
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            
-            app.UseResponseCompression();        
+
+            app.UseResponseCompression();
+
             app.UseStaticFiles(new StaticFileOptions
             {
                 OnPrepareResponse =
@@ -73,11 +74,10 @@ namespace downr
             });
 
             app.UseMvc(routes =>
-            {   
+            {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-
+                    template: "{controller=Post}/{action=Index}/{id?}");
             });
 
             // get the path to the content directory so the yaml headers can be indexed as metadata
